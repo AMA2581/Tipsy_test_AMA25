@@ -15,7 +15,7 @@ class CalculatorViewController: UIViewController {
     @IBOutlet var twentyPctButton: UIButton!
     @IBOutlet var splitNumberLabel: UILabel!
 
-    var tipPct: Float = 0.0
+    var calculatorBrain = CalculatorBrain()
 
     @IBAction func tipChanged(_ sender: UIButton) {
         zeroPctButton.isSelected = false
@@ -33,31 +33,21 @@ class CalculatorViewController: UIViewController {
 
     @IBAction func calculatePressed(_ sender: UIButton) {
         tipPctCheck()
-//        print(billTextField.text ?? "nothing")
-//        print(tipPct)
-//        print(splitNumberLabel.text!)
-//        print(calculate())
+        calculatorBrain.amount = Float(billTextField.text!) ?? 0.0
+        calculatorBrain.peopleCount = Float(splitNumberLabel.text!)!
         performSegue(withIdentifier: "goToResult", sender: self)
     }
 
     func tipPctCheck() {
         if zeroPctButton.isSelected {
-            tipPct = 0.0
+            calculatorBrain.tipPct = 0.0
         }
         if tenPctButton.isSelected {
-            tipPct = 0.1
+            calculatorBrain.tipPct = 0.1
         }
         if twentyPctButton.isSelected {
-            tipPct = 0.2
+            calculatorBrain.tipPct = 0.2
         }
-    }
-
-    func calculate() -> Float {
-        var result: Float = 0.0
-        result = Float(billTextField.text!) ?? 0.0 * tipPct
-        result += Float(billTextField.text!) ?? 0.0
-        result = result / Float(splitNumberLabel.text!)!
-        return Float(round(100 * result) / 100)
     }
 
     func activePct() -> String {
@@ -73,7 +63,7 @@ class CalculatorViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToResult" {
             let destinationVC = segue.destination as! ResultsViewController
-            destinationVC.total = calculate()
+            destinationVC.total = calculatorBrain.calculate()
             destinationVC.peopleCount = splitNumberLabel.text!
             destinationVC.percent = activePct()
         }

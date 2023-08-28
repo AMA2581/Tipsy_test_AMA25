@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E40ABEB2A9D3D5300A65DC7 /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E40ABEA2A9D3D5300A65DC7 /* CalculatorBrain.swift */; };
 		2EE39F6E2A9C6E2A00D392E1 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE39F6D2A9C6E2A00D392E1 /* ResultsViewController.swift */; };
 		ADB689532326708D006D4E2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB689522326708D006D4E2B /* AppDelegate.swift */; };
 		ADB689552326708D006D4E2B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB689542326708D006D4E2B /* SceneDelegate.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E40ABEA2A9D3D5300A65DC7 /* CalculatorBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorBrain.swift; sourceTree = "<group>"; };
 		2EE39F6D2A9C6E2A00D392E1 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		ADB6894F2326708D006D4E2B /* Tipsy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tipsy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADB689522326708D006D4E2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -39,12 +41,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2E8BD8742A9C82F700923E89 /* View */ = {
+		2E2CA2F52A9C8BBA00B32841 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2E40ABEA2A9D3D5300A65DC7 /* CalculatorBrain.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2E8BD8742A9C82F700923E89 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				ADB689582326708D006D4E2B /* Main.storyboard */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		2EE39F702A9C6E5000D392E1 /* Controllers */ = {
@@ -77,8 +87,9 @@
 			children = (
 				ADB689522326708D006D4E2B /* AppDelegate.swift */,
 				ADB689542326708D006D4E2B /* SceneDelegate.swift */,
+				2E2CA2F52A9C8BBA00B32841 /* Models */,
 				2EE39F702A9C6E5000D392E1 /* Controllers */,
-				2E8BD8742A9C82F700923E89 /* View */,
+				2E8BD8742A9C82F700923E89 /* Views */,
 				ADB6895B2326708E006D4E2B /* Assets.xcassets */,
 				ADB6895D2326708E006D4E2B /* LaunchScreen.storyboard */,
 				ADB689602326708E006D4E2B /* Info.plist */,
@@ -160,6 +171,7 @@
 				ADB689572326708D006D4E2B /* CalculatorViewController.swift in Sources */,
 				ADB689532326708D006D4E2B /* AppDelegate.swift in Sources */,
 				ADB689552326708D006D4E2B /* SceneDelegate.swift in Sources */,
+				2E40ABEB2A9D3D5300A65DC7 /* CalculatorBrain.swift in Sources */,
 				2EE39F6E2A9C6E2A00D392E1 /* ResultsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
