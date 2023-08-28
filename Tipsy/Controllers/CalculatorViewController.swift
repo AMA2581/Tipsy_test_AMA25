@@ -36,7 +36,8 @@ class CalculatorViewController: UIViewController {
 //        print(billTextField.text ?? "nothing")
 //        print(tipPct)
 //        print(splitNumberLabel.text!)
-        print(calculate())
+//        print(calculate())
+        performSegue(withIdentifier: "goToResult", sender: self)
     }
 
     func tipPctCheck() {
@@ -50,12 +51,31 @@ class CalculatorViewController: UIViewController {
             tipPct = 0.2
         }
     }
-    
+
     func calculate() -> Float {
         var result: Float = 0.0
-        result = Float(billTextField.text!)! * tipPct
-        result += Float(billTextField.text!)!
+        result = Float(billTextField.text!) ?? 0.0 * tipPct
+        result += Float(billTextField.text!) ?? 0.0
         result = result / Float(splitNumberLabel.text!)!
         return Float(round(100 * result) / 100)
+    }
+
+    func activePct() -> String {
+        if tenPctButton.isSelected {
+            return tenPctButton.title(for: .normal)!
+        } else if twentyPctButton.isSelected {
+            return twentyPctButton.title(for: .normal)!
+        } else {
+            return zeroPctButton.title(for: .normal)!
+        }
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToResult" {
+            let destinationVC = segue.destination as! ResultsViewController
+            destinationVC.total = calculate()
+            destinationVC.peopleCount = splitNumberLabel.text!
+            destinationVC.percent = activePct()
+        }
     }
 }
