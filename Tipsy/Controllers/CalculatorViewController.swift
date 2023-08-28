@@ -26,11 +26,13 @@ class CalculatorViewController: UIViewController {
     }
 
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
+        splitNumberLabel.text = "\(Int(sender.value))"
     }
 
     @IBAction func calculatePressed(_ sender: UIButton) {
         tipPctCheck()
         print(tipPct)
+        print(splitNumberLabel.text!)
     }
 
     func tipPctCheck() {
